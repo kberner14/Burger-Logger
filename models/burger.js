@@ -3,6 +3,9 @@ const orm = require("../config/orm");
 const burger = {
   all: (cb) => orm.getAll("burgers", cb),
   create: (text, cb) => orm.createOne("burgers", { text }, cb),
+  devour: (id, cb) => {
+    orm.updateById("burgers", { devoured: true }, id, cb);
+  },
 };
 
 module.exports = burger;
