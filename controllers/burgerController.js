@@ -21,4 +21,14 @@ router.post("/api/burgers", (req, res) => {
   });
 });
 
+router.patch("/api/burgers/:id/devoured", (rew, res) => {
+  const devourValue = req.body.devoured;
+  if (req.body.text !== undefined || !req.body.devoured) {
+    return res.sendStatus(405);
+  }
+  burger.devoured(id, (result) => {
+    res.end();
+  });
+});
+
 module.exports = router;
