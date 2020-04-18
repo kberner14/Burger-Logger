@@ -16,6 +16,20 @@ const orm = {
       cb(data);
     });
   },
+
+  updateById: (table, updateValues, id, cb) => {
+    const queryString = "UPDATE ?? SET ? WHERE id = ?";
+    connection.query(
+      queryString,
+      [table, updateValues, id],
+      (error, results) => {
+        if (error) {
+          throw error;
+        }
+        cb(results);
+      }
+    );
+  },
 };
 
 module.exports = orm;
@@ -42,3 +56,19 @@ module.exports = orm;
 //   RowDataPacket { id: 2, text: 'Veg in a Hedge', devoured: 0 },
 //   RowDataPacket { id: 3, text: 'The Keto Challenger', devoured: 0 }
 // ]
+
+// orm.updateById("burgers", { devoured: true }, 1, (result) => {
+//   console.log(result);
+// });
+// $ node orm.js
+// connected as id 84
+// OkPacket {
+//   fieldCount: 0,
+//   affectedRows: 1,
+//   insertId: 0,
+//   serverStatus: 2,
+//   warningCount: 0,
+//   message: '(Rows matched: 1  Changed: 0  Warnings: 0',
+//   protocol41: true,
+//   changedRows: 0
+// }

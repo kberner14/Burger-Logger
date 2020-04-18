@@ -12,4 +12,4 @@ CREATE TABLE burgers(
   PRIMARY KEY (id)
 );
 
-INSERT INTO burgers SET text = "Mushroom Swiss";
+UPDATE burgers SET devoured = true WHERE id = 1;
