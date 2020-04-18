@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 8080;
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+app.use(express.urlencoded({ extended: true }));
+
 app.use(burgerControllerRoutes);
 
 app.listen(PORT, () => {
