@@ -11,3 +11,5 @@ CREATE TABLE burgers(
   devoured BOOLEAN DEFAULT false,
   PRIMARY KEY (id)
 );
+
+INSERT INTO burgers SET text = "Mushroom Swiss";
