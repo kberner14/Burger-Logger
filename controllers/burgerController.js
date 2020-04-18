@@ -26,7 +26,7 @@ router.patch("/api/burgers/:id/devoured", (rew, res) => {
   if (req.body.text !== undefined || !req.body.devoured) {
     return res.sendStatus(405);
   }
-  burger.devoured(id, (result) => {
+  burger.devoured(req.params.id, () => {
     res.end();
   });
 });

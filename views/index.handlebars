@@ -39,10 +39,9 @@
       <h2>Order Up!</h2>
       <ul>
         {{#each burgers }}
-        <li>
-          {{#unless devoured}}
-          <p>{{id}} {{text}} </p>
-          {{/unless}}
+        {{#unless devoured}}
+        <li class=><button data-id="{{ id }}" class="btn btn-success btn-sm mr-2">NOM</button> {{text}}</li>
+        {{/unless}}
         </li>
         {{/each}}
       </ul>
